@@ -7,23 +7,28 @@ const styles = {
   marginTop: '20px',
 }
 
+const Todo = props => (
+  <li>
+    <input type="checkbox" />
+    <button>Delete</button>
+    <span>{props.text}</span>}
+  </li>
+)
+
 class App extends React.Component {
 
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
-      count: 0,
+      todos: [],
     }
-  }
-
-  increaseCount() {
-    this.setState({count: this.state.count + 1})
   }
 
   render() {
     return (
       <div>
         <ul>
+          {this.state.todos.map(todo => <Todo todo={todo} />)}
         </ul>
       </div>
     )
